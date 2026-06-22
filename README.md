@@ -163,3 +163,7 @@ python inference_flux_klein_rr.py --config configs/inference_flux_klein_rr.yaml 
 ## Acknowledgements
 
 This codebase builds on the [FLUX.2 Klein](https://huggingface.co/black-forest-labs) backbone (released by Black Forest Labs), the `diffusers` library, and the SIRS evaluation protocol from Zhang et al. (CVPR'18). The reflection synthesis pipeline draws on [DSRNet / RDNet](https://github.com/mingcv/DSRNet) and standard physically-motivated formulations.
+
+## License
+
+This repository is released under the [Apache License 2.0](LICENSE). Note that the FLUX backbone and any pretrained weights are governed by their own respective licenses; please consult the upstream sources before redistribution.
