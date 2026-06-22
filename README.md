@@ -152,7 +152,11 @@ python inference_flux_klein_rr.py --config configs/inference_flux_klein_rr.yaml 
 
 ## Pretrained checkpoint
 
-🚧 Coming soon — we will release the trained `best_model.pt` and a HuggingFace snapshot of the FLUX backbone configuration.
+Our released checkpoint is a **full fine-tune** of the FLUX.2 Klein 4B transformer (matches `model.use_lora: false` in the provided configs):
+
+📦 **[best_model.pt (7.8 GB)](https://drive.google.com/file/d/1sttgFry6rajbzXSaL1WLXCAABIUxdRPr/view?usp=sharing)**
+
+After downloading, point `eval.checkpoint` / `inference.checkpoint` in the corresponding YAML at the local file path.
 
 ## Qualitative results
 
