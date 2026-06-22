@@ -69,7 +69,7 @@ Core dependencies: `torch`, `diffusers`, `transformers`, `peft`, `accelerate`, `
 
 ### Backbone weights
 
-Download the FLUX.2 Klein 4B weights once and point `model.backbone` in every config to that directory:
+Download the [FLUX.2 Klein 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) weights once (e.g. via `huggingface-cli download black-forest-labs/FLUX.2-klein-4B`) and point `model.backbone` in every config to that directory:
 
 ```yaml
 model:
@@ -168,7 +168,7 @@ A collection of qualitative outputs (input mixture / predicted transmission / pr
 
 ## Acknowledgements
 
-This codebase builds on the [FLUX.2 Klein](https://huggingface.co/black-forest-labs) backbone (released by Black Forest Labs), the `diffusers` library, and the SIRS evaluation protocol from Zhang et al. (CVPR'18). The reflection synthesis pipeline draws on [DSRNet / RDNet](https://github.com/mingcv/DSRNet) and standard physically-motivated formulations.
+This codebase builds on the [FLUX.2 Klein 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) backbone (released by Black Forest Labs), the `diffusers` library, and the SIRS evaluation protocol from Zhang et al. (CVPR'18). The reflection synthesis pipeline draws on [DSRNet / RDNet](https://github.com/mingcv/DSRNet) and standard physically-motivated formulations.
 
 ## License
 
