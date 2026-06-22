@@ -149,6 +149,12 @@ python inference_flux_klein_rr.py --config configs/inference_flux_klein_rr.yaml 
 
 🚧 Coming soon — we will release the trained `best_model.pt` and a HuggingFace snapshot of the FLUX backbone configuration.
 
+## Qualitative results
+
+A collection of qualitative outputs (input mixture / predicted transmission / predicted reflection across the SIRS benchmarks) is available here:
+
+📦 **[PRISM_results.zip (2.2 GB)](https://drive.google.com/file/d/1sj03RSPLXeLr30SNA-S-h_UGX84g0y5j/view?usp=sharing)**
+
 ## Citation
 
 ```bibtex
