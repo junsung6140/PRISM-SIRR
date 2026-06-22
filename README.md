@@ -1,5 +1,10 @@
 # PRISM: Latent Composition Consistency for Single-Image Reflection Removal
 
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://junsung6140.github.io/prism/)
+[![Conference](https://img.shields.io/badge/ECCV-2026-purple)](https://junsung6140.github.io/prism/)
+[![Backbone](https://img.shields.io/badge/🤗-FLUX.2--klein--4B-yellow)](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
+
 Official code repository for our **ECCV 2026** paper:
 
 > **PRISM: Latent Composition Consistency for Single-Image Reflection Removal**
