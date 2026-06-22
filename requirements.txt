@@ -1,0 +1,28 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+accelerate>=0.25.0
+diffusers>=0.25.0
+transformers>=4.36.0
+
+# LoRA and PEFT
+peft>=0.7.0
+
+# Loss functions
+lpips>=0.1.4
+
+# Image processing
+Pillow>=9.0.0
+opencv-python>=4.7.0
+scipy>=1.10.0
+
+# Metrics
+scikit-image>=0.20.0
+
+# Config and logging
+PyYAML>=6.0
+wandb>=0.16.0
+tqdm>=4.65.0
+
+# Optional: Memory efficient attention
+xformers>=0.0.23
