@@ -1,0 +1,22 @@
+# PRISM evaluation config
+# Replace <PATH_TO_*> placeholders before running.
+
+model:
+  backbone: "<PATH_TO_FLUX_KLEIN_4B>"
+  use_lora: false
+
+vae:
+  encode_mode: "sample"
+
+data:
+  source_key: "source_image"
+  target_key: "target_image"
+  reflection_key: "reflection_image"
+
+eval:
+  checkpoint: "<PATH_TO_CHECKPOINT>/best_model.pt"
+  test_dir: "<PATH_TO_DATA>/test"           # parent dir containing real20_420/, Nature/, SIR2/
+  save_dir: "<PATH_TO_OUTPUT>/eval_results"
+  align_size: 32
+  save_images: true
+  inference_only: false

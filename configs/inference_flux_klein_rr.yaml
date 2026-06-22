@@ -1,0 +1,19 @@
+# PRISM inference config (no GT required)
+# Replace <PATH_TO_*> placeholders before running.
+
+model:
+  backbone: "<PATH_TO_FLUX_KLEIN_4B>"
+  use_lora: false
+
+data:
+  source_key: "source_image"
+  target_key: "target_image"
+  reflection_key: "reflection_image"
+
+inference:
+  checkpoint: "<PATH_TO_CHECKPOINT>/best_model.pt"
+  input_dir: "<PATH_TO_INPUT_IMAGES>"         # flat image dir OR dir containing blended/
+  save_dir: "<PATH_TO_OUTPUT>/inference_results"
+  align_size: 32
+  fixed_size: null                             # set an int to force square resize
+  num_workers: 4

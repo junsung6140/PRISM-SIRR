@@ -1,0 +1,93 @@
+# PRISM training config (LCC + LCS on FLUX.2 Klein 4B)
+# Replace <PATH_TO_*> placeholders before running.
+
+model:
+  backbone: "<PATH_TO_FLUX_KLEIN_4B>"   # local copy or HF cache of FLUX.2 Klein 4B
+  use_lora: false                        # full fine-tuning of the transformer
+
+vae:
+  encode_mode: "sample"                  # "sample" or "mean"
+
+data:
+  use_fusion: true
+
+  train_datasets:
+    # Synthesized blends generated on-the-fly from a clean-image pool
+    - dir: "<PATH_TO_DATA>/train/VOCdevkit/VOC2012/JPEGImages"
+      type: "synthesis"
+      synthesis_method: "rdnet"          # "rdnet" or "physical"
+      ratio: 0.6
+
+    # Real SIR captures (Zhang et al.)
+    - dir: "<PATH_TO_DATA>/train/real"
+      type: "sirs"
+      ratio: 0.2
+
+    # Nature dataset
+    - dir: "<PATH_TO_DATA>/train/nature"
+      type: "sirs"
+      ratio: 0.2
+
+  fusion_size: 10000
+
+  val_dir: "<PATH_TO_DATA>/test/real20_420"
+
+  patch_size: 512
+  batch_size: 1
+  num_workers: 4
+
+  source_key: "source_image"
+  target_key: "target_image"
+  reflection_key: "reflection_image"
+
+training:
+  max_steps: 50000
+  learning_rate: 5.0e-5
+  warmup_steps: 500
+  gradient_accumulation_steps: 2
+  mixed_precision: "bf16"
+  checkpointing_steps: 1000
+  validation_steps: 1000
+
+  optimizer: "AdamW"
+  optimizer_kwargs:
+    betas: [0.9, 0.999]
+    weight_decay: 0.01
+    eps: 1.0e-8
+
+  lr_scheduler: "cosine"
+
+loss:
+  # Latent-space loss on velocity
+  latent_weight: 1.0
+  latent_type: "l2"                       # "l1" or "l2"
+
+  # Pixel-space loss on decoded transmission
+  pixel_weight: 2.0
+  pixel_type: "lpips+l1"                  # "l1", "lpips", or "l1+lpips"
+  pixel_max_size: 512
+
+  # LCC: swap reflections within batch, recompose, enforce cycle consistency
+  cycle_weight: 0.5
+  cycle_mode: "both"                      # "T", "R", or "both"
+  cycle_space: "pixel"                    # "latent" or "pixel"
+  cycle_pixel_type: "l1+lpips"
+  cycle_pixel_max_size: 512
+
+  # LCS: patch-level InfoNCE between transmission and reflection latents
+  nce_weight: 0.1
+  nce_tau: 0.1
+  nce_patch_size: 4                       # 0 = global GAP, >0 = patch-level
+
+logging:
+  output_dir: "<PATH_TO_OUTPUT>/PRISM"
+  log_interval: 100
+  wandb_project: "prism-sirr"
+  save_images: true
+  num_val_images: 20
+
+hardware:
+  devices: 1
+  precision: "bf16-mixed"
+  enable_xformers: true
+  gradient_checkpointing: true
