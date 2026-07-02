@@ -181,4 +181,5 @@ This codebase builds on the [FLUX.2 Klein 4B](https://huggingface.co/black-fores
 
 ## License
 
-This repository is released under the [Apache License 2.0](LICENSE). Note that the FLUX backbone and any pretrained weights are governed by their own respective licenses; please consult the upstream sources before redistribution.
+This repository is released under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. The code and any weights released by us are provided for academic and non-commercial research use only.
+The FLUX backbone and any upstream pretrained weights are governed by their own respective licenses (e.g., the FLUX.1 license terms). Please consult the upstream sources before use or redistribution. In case of any conflict, the upstream licenses take precedence.
