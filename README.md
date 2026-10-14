@@ -154,7 +154,7 @@ python inference_flux_klein_rr.py --config configs/inference_flux_klein_rr.yaml 
 
 Our released checkpoint is a **full fine-tune** of the FLUX.2 Klein 4B transformer (matches `model.use_lora: false` in the provided configs):
 
-📦 **[best_model.pt (7.8 GB)](https://drive.google.com/file/d/1S8GvryrJ9YF-jpP9P2E_14aTt2idkcTD/view?usp=sharing)**
+📦 **[best_model.pt (7.8 GB)](https://drive.google.com/file/d/1NcVhchWNXweBdEqomUHt5_ziuFP7p9JN/view?usp=sharing)**
 
 After downloading, point `eval.checkpoint` / `inference.checkpoint` in the corresponding YAML at the local file path.
 
